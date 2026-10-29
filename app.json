@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "haru",
+    "name": "하루",
     "slug": "haru",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,11 +8,14 @@
     "scheme": "haru",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.omom613.haru",
+      "supportsTablet": false
     },
     "android": {
+      "package": "com.omom613.haru",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#FFF8F1",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
@@ -20,7 +23,7 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "server",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -28,11 +31,28 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#FFF8F1",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "사진의 날짜와 위치로 하루를 기록하고, 사진 내용으로 검색하기 위해 사진첩에 접근해요.",
+          "savePhotosPermission": false,
+          "isAccessMediaLocationEnabled": true,
+          "granularPermissions": ["photo"]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "사진이 찍힌 좌표를 '부산 해운대구' 같은 장소 이름으로 바꾸기 위해 사용해요."
+        }
+      ],
+      "expo-sqlite",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
